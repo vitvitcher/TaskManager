@@ -1,0 +1,28 @@
+﻿@{
+    var task = (TaskModel)ViewData["Message"];
+}
+<div class="table">
+    <div class="grid-start">
+        <div class="row" style="background-color: lightslategray;">Id</div>
+        <div class="row" style="background-color: lightslategray;">Name</div>
+        <div class="row" style="background-color: lightslategray;">Deadline</div>
+        <div class="row" style="background-color: lightslategray;">Priority</div>
+        <div class="row" style="background-color: lightslategray;">Tags</div>
+        <div class="row" style="background-color: lightslategray;">Description</div>
+        <div class="row" style="background-color: lightslategray;">Manage</div>
+    </div>
+<form asp-action="Replace" method="post">
+    <div class="grid-end" style="margin-top: 10px;">
+        <input value="@task.Id" name="Id" type="text" class="row" autocomplete="off" style="background-color: #ededed; width: 100%;" readonly />
+        <input value="@task.Name" name="Name" type="text" class="row" autocomplete="off" style="background-color: #ededed; width: 100%;">
+        <input value="@task.Deadline" name="Deadline" type="date" class="row" autocomplete="off" style="background-color: #ededed; width: 100%;">
+        <input value="@task.Priority" name="Priority" type="number" class="row" min="1" max="3" autocomplete="off" style="background-color: #ededed; width: 100%;">
+        <input value="@task.Tags" name="Tags" type="text" class="row" autocomplete="off" style="background-color: #ededed; width: 100%;">
+        <input value="@task.Description" name="Description" type="text" class="row" autocomplete="off" style="background-color: #ededed; width: 100%;">
+        <input name="IsDone" type="checkbox" class="row" style="display: none;">
+        <div class="row" style="padding: 0px;">
+            <button type="submit" class="btn btn-primary done-button">Confirm edit</button>
+            <a asp-action="Index" class="btn btn-primary done-button" style="background-color:#ff3333">Cancel</a>
+        </div>
+    </div>
+</form>
