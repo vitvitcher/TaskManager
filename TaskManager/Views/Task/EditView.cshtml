@@ -2,7 +2,7 @@
     var task = (TaskModel)ViewData["Message"];
 }
 <div class="table">
-    <div class="grid-start">
+    <div class="grid-start" , style=" grid-template-columns:  1fr 1fr 1fr 1fr 1.3fr 3.3fr 0.9fr;">
         <div class="row" style="background-color: lightslategray;">Id</div>
         <div class="row" style="background-color: lightslategray;">Name</div>
         <div class="row" style="background-color: lightslategray;">Deadline</div>
@@ -12,7 +12,7 @@
         <div class="row" style="background-color: lightslategray;">Manage</div>
     </div>
 <form asp-action="Replace" method="post">
-    <div class="grid-end" style="margin-top: 10px;">
+        <div class="grid-end" style="margin-top: 10px;grid-template-columns:  1fr 1fr 1fr 1fr 1.3fr 3fr 1fr;">
         <input value="@task.Id" name="Id" type="text" class="row" autocomplete="off" style="background-color: #ededed; width: 100%;" readonly />
         <input value="@task.Name" name="Name" type="text" class="row" autocomplete="off" style="background-color: #ededed; width: 100%;">
         <input value="@task.Deadline" name="Deadline" type="date" class="row" autocomplete="off" style="background-color: #ededed; width: 100%;">

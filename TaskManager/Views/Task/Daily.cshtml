@@ -57,20 +57,28 @@
         {
             @if (task.IsDone)
             {
-                <div class="row">✔️@task.Name</div>
+                <div class="row">✔@task.Name</div>
             }
             else 
             {
-                <div class="row">🤔@task.Name</div>
+                        <div class="row">❌@task.Name</div>
             } 
             <div class="row">@task.Deadline.ToString("MMMM dd, yyyy")</div>
             <div class="row">@task.Priority*</div>
             <div class="row">@task.Tags</div>
             <div class="row">@task.Description</div>
             <div class="row">
+                        @if (!task.IsDone){
                 <div style="width: 33%; float:left; display: flex; justify-content: space-between;">
                     <a asp-controller="Task" asp-action="MarkAsDoneDaily" class="btn btn-primary done-button" asp-route-id="@task.Id">Done</a>
-                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div style="width: 33%; float:left; display: flex; justify-content: space-between;">
+                                <a asp-controller="Task" asp-action="MarkAsDoneDaily" class="btn btn-primary done-button" asp-route-id="@task.Id">Undo</a>
+                            </div>
+                        }
                 <div style="width: 33%;  display: flex; justify-content: space-between;">
                     <a asp-controller="Task" asp-action="Edit" class="btn btn-primary done-button" asp-route-id="@task.Id" style="background-color: #99c2ff;">Edit</a>
                 </div>
